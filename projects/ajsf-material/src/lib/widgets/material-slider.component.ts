@@ -23,9 +23,10 @@ import { JsonSchemaFormService } from '@ajsf/core';
       [min]="options?.minimum"
       [step]="options?.multipleOf || options?.step || 'any'"
       [style.width]="'100%'"
-      [value]="controlValue"
       (blur)="options.showErrors = true"
-      (change)="updateValue($event)"></mat-slider>
+      (change)="updateValue($event)">
+      <input matSliderThumb [(ngModel)]="controlValue">
+      </mat-slider>
     <mat-error *ngIf="options?.showErrors && options?.errorMessage"
       [innerHTML]="options?.errorMessage"></mat-error>`,
     styles: [` mat-error { font-size: 75%; } `],
